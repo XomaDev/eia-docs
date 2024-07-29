@@ -2,6 +2,8 @@
 
 Collection of basic code snippets to get a quick start!
 
+> Note: a semicolon `;` is used to add comments
+
 ## Program entry point
 
 Part of code from where the execution begins! In Eia, the entry point is the `main` function.
@@ -26,7 +28,7 @@ println("Thank you", " Hackclub!")
 
 Similarly, `readln` function reads an entire line from the standard input.
 
-```kotlin copy
+```swift copy
 ; Requests the user to enter a name
 println("Enter a name: ")
 
@@ -35,4 +37,129 @@ let name = readln()
 
 ; Hello $name
 println("Hello ", name)
+```
+
+## Variables
+
+Inspired by Swift! Declare a variable using either `let` or `var`.
+
+Use the `let` keyword to create immutable constant that cannot be reassigned.\
+To create a mutable variable with re-assignable property, use the `var` keyword.
+
+```js copy
+let name = "Hackclub!"
+; 'name' is a constant that can only be accessed!
+```
+
+```swift copy
+; Creates a variable 'count' with initial value of 7
+var count = 7
+; Increment the count by 2
+count += 2
+; 9
+```
+
+> Eia has an automated type resolution system, you don't need to explicitly specify data types, it is auto-detected.
+
+## Primitive types
+
+`Bool`, `Int`, `Char`, `Float` and `Array`/`Array<N>` are Primitive Classes.\
+An example of each:
+
+```swift copy
+println(
+  "Meow World",   ; a string
+  'H',            ; a character
+  true,           ; boolean type
+  123,            ; an integer
+  2.8,            ; a float
+
+  arrayOf("meow", "world"),      ; implicit array declaration (type is auto resolved)
+  arrayOf<Any>(2, "hello"),      ; an array containing mixed data types
+  makeArray<Int>(5, 8)           ; create an array of integer of size 5 with default value 8
+)
+```
+
+This outputs the following:
+
+```
+Meow World
+H
+true
+123
+2.8
+EArray(meow, world)
+EArray(2, hello)
+EArray(8, 8, 8, 8, 8)
+```
+
+## Conditional Expressions
+
+```swift copy
+let x = 5
+let y = 8
+
+if (x > y) {
+  println("X is greater")
+} else {
+  println("Y is greater")
+}
+```
+
+Like Kotlin, you may use `if` not just for flow control, but also as an expression:
+
+```swift copy
+let x = 5
+let y = 8
+
+println(if (x > y) "X is greater" else "Y is greater")
+```
+
+### For loop
+
+```swift copy
+let places = arrayOf("India", "Japan", "Germany")
+for (place in places) {
+  println(place)
+}
+```
+
+or the classical way:
+
+```swift copy
+let places = arrayOf("India", "Japan", "Germany")
+for (var i = 0, i < len(places), i++) {
+  println(places[i])
+}
+```
+
+### Until loop
+
+```swift copy
+let places = arrayOf("India", "Japan", "Germany")
+var index = 0
+until (index < len(places)) {
+  println("Item at index " + index + " is " + places[index])
+  index++
+}
+```
+
+### Special loop
+
+It's one of the special feature offered by Eia!
+
+Iterating backwards from 5 to 1:
+
+```swift copy
+each (x: 5 to 1) {
+  println(x)
+}
+```
+
+Iteration from 2 to 10 by increment of 2:
+
+```swift copy
+each (y: 2 to 10 by 2) {
+  println(x)
+}
 ```
