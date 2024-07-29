@@ -1,0 +1,38 @@
+# Basic syntax
+
+Collection of basic code snippets to get a quick start!
+
+## Program entry point
+
+Part of code from where the execution begins! In Eia, the entry point is the `main` function.
+
+```kotlin {1} copy
+fn main() {
+  println("Hello, World!")
+}
+```
+
+> This is optional! Just like Python, you can directly write down the codes without necessarily having a main function.
+ But when this source file is imported, it may evaluate code located outside `main` that you may not require!
+
+## Standard I/O operations
+
+`println` and `print` prints its argument to the standard output.
+
+```kotlin copy
+print("Meow\n")
+println("Thank you", " Hackclub!")
+```
+
+Similarly, `readln` function reads an entire line from the standard input.
+
+```kotlin copy
+; Requests the user to enter a name
+println("Enter a name: ")
+
+; Reads and stores the name
+let name = readln()
+
+; Hello $name
+println("Hello ", name)
+```
