@@ -1,0 +1,47 @@
+# Std lib
+
+What? Eia has a std lib? Yes!! 😲
+
+In Eia, primitive data types have an associated std-lib, namely `string`, `eint`, `array`, `etype` (for `Type`).\
+While you can still operate on primitive types, you won't be able to use standard methods unless you include the associated
+standard library.
+
+We use the `include` keyword to load an external class. It could be static or non-static.\
+An example of including `string` std-lib:
+
+```kotlin copy
+include(static:std:string)
+```
+
+Now you can perform standard operations on a string:
+
+```
+println(" Melon ".trim())
+; "Melon"
+```
+
+## String
+
+An example of all the standard methods offered for a String:
+
+- `indexOfChar(letter: Char): Int`
+- `indexOfFrom(substring: String, from: Int): Int` searches for a substring from the given position
+- `indexOf(substring: String): Int`
+- `contains(substring: String): Bool`
+- `startsWith(prefix: String): Bool`
+- `endsWith(suffix: String): Bool`
+- `uppercase(): String`
+- `lowercase(): String`
+- `part(from: Int, to: Int)` returns part of a string
+- `substring(from: Int)`
+- `trim(): String`
+- `replace(match: String, replacement: String): String`
+- `isAlpha(): Bool` check if the string contains <i>only</i> English characters
+- `isNumeric(): Bool` if the string contains a valid numerical value
+- `toCharArray(): Array<Char>`
+- `repeat(nTimes: Int): String` repeats the string n number of times
+- `split(delimiter: String): Array<String>`
+- `splitOnce(delimiter: String): Array<String>` splits the string once at a given delimiter
+- `size(): Int`
+- `toIntRadix(radix: Int): Int` parses string to a specific numeric base
+- `toInt(): Int` converts the string into a valid base 10 int

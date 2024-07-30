@@ -63,8 +63,9 @@ count += 2
 
 ## Primitive types
 
-`Bool`, `Int`, `Char`, `Float` and `Array`/`Array<N>` are Primitive Classes.\
-An example of each:
+Primitive classes in Eia are `Bool`, `Int`, `Char`, `Float`, generic `Num`, `String`, `Array`/`Array<N>`,
+`Type`, (that holds signatures), `Unit`, `Nil`, `Any`\
+An example of few:
 
 ```swift copy
 println(
@@ -73,7 +74,9 @@ println(
   true,           ; boolean type
   123,            ; an integer
   2.8,            ; a float
+  nil,            ; null type
 
+  { println("Meow") }            ; a Unit, anonymous lambda that can be invoked using `<unit>(args..)`
   arrayOf("meow", "world"),      ; implicit array declaration (type is auto resolved)
   arrayOf<Any>(2, "hello"),      ; an array containing mixed data types
   makeArray<Int>(5, 8)           ; create an array of integer of size 5 with default value 8
@@ -163,3 +166,28 @@ each (y: 2 to 10 by 2) {
   println(x)
 }
 ```
+
+### Type checks and casting
+
+Like Kotlin, the `is` checks if an expression belongs to a certain type.
+
+```swift copy
+let a = "Meow!"
+println(a is String)            ; true
+println("Meow" + 8 is Int)      ; false
+println(arrayOf("Hack", "Club!") is Array<String>)      ; true
+```
+
+To cast values, for example from `Any` to `Int` or generic `Array` to `Array<Int>` we use the cast operator `::` followed
+by a type:
+
+```swift copy
+; casting from Any to String
+let name: Any = "Meow"
+let reName: String = name::String
+
+; casting from generic Array to Array<Int>
+let gArray = arrayOf(7::Any, 8::Any)        ; gArray has signature Array<Any>
+let eArray = gArray::Array<Int>             ; eArray has signature Array<Int>
+```
+
