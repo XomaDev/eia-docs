@@ -1,0 +1,78 @@
+# Functions
+
+Eia functions are declared using the `fn` keyword:
+
+```rust copy
+fn square(x: Int): Int {
+  return x * x
+}
+```
+
+then to call a function:
+
+```swift
+let squared = square(5)
+```
+
+## Parameters
+
+Parameters are defined in the format `name: Type` and are seperated using commas:
+
+```rust copy
+fn sayMeow(n: Int) {
+  println("Meow ".repeat(n))
+}
+```
+
+## Inline functions
+
+A function defined without curly braces with an expression as a body:
+
+```rust copy
+fn square(x: Int): Int = x * x
+```
+
+## Nested functions
+
+Also known as local functions in Kotlin, you can define a function inside another function:
+
+```swift copy
+fn construst(name: String, age: Int): String {
+  var details = ""
+
+  fn appendLine(value: String) {
+    details += value
+    details += '\n'
+  }
+
+  appendLine("A person called " + name)
+  appendLine("Of age " + age)
+  return details
+}
+```
+
+## Function overloading
+
+Eia supports function overloading, there can be many functions with the same name, but must have unique parameters size.
+
+```swift copy
+fn greet() {
+  println("Good Morning!")
+}
+
+fn greet(name: String) {
+  println(format("Good Morning %s!", name))
+}
+```
+
+## Access modifiers
+
+There are modifiers, a default `private` modifier and `visible` (public) modifier:
+
+```kotlin copy
+; Visible to only the current class
+private fn calculate(xPos: Int, yPos: Int, zPos: Int) { .. }
+
+; Visible to everyone that imports the class
+fn calculate(x: Int, y: Int): Int { ... }
+```

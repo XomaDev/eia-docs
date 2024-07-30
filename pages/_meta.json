@@ -1,6 +1,7 @@
 {
   "index": "Introduction",
   "syntax": "Syntax",
+  "standard-lib": "Standard library",
   "about": {
     "title": "About",
     "type": "page"

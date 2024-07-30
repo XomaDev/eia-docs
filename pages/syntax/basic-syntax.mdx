@@ -98,6 +98,8 @@ EArray(8, 8, 8, 8, 8)
 
 ## Conditional Expressions
 
+Eia lang's behaviour of If expressions is very identical to that of Kotlin.
+
 ```swift copy
 let x = 5
 let y = 8
@@ -109,7 +111,7 @@ if (x > y) {
 }
 ```
 
-Like Kotlin, you may use `if` not just for flow control, but also as an expression:
+You may use `if` not just for flow control, but also as an expression:
 
 ```swift copy
 let x = 5
@@ -117,6 +119,28 @@ let y = 8
 
 println(if (x > y) "X is greater" else "Y is greater")
 ```
+
+Branches of an if expression can be blocks. In this case, the last expression is the value of a block:
+
+```swift copy
+let a = 10
+let b = 20
+
+let max = if (a > b) {
+    print("Choose a")
+    a
+} else {
+    print("Choose b")
+    b
+}
+
+println(max)
+; Choose b
+; 20
+```
+
+If you're using if as an expression, for example,
+for returning its value or assigning it to a variable, the else branch is mandatory.
 
 ### For loop
 
