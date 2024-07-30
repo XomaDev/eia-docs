@@ -9,13 +9,13 @@ standard library.
 We use the `include` keyword to load an external class. It could be static or non-static.\
 An example of including `string` std-lib:
 
-```kotlin copy
+```kotlin
 include(static:std:string)
 ```
 
 Now you can perform standard operations on a string:
 
-```
+```swift copy
 println(" Melon ".trim())
 ; "Melon"
 ```
@@ -45,3 +45,82 @@ An example of all the standard methods offered for a String:
 - `size(): Int`
 - `toIntRadix(radix: Int): Int` parses string to a specific numeric base
 - `toInt(): Int` converts the string into a valid base 10 int
+
+## Array
+
+```kotlin
+include(static:std:array)
+```
+
+- `indexOf(element: Any): Int`
+- `contains(element: Int): Bool`
+- `isEmpty(): Bool`
+- `recursiveLen(): Int` returns length of the array, include that of nested arrays
+- `flatten(): Array` converts a nested array into a flat one
+- `size(): Int`
+- `add(element: Any): Any`
+- `removeAt(index: Int): Any`
+- `string(): String` a string representation of elements
+
+Note that `add()` and `removeAt()` operations returns a newly allocated array.
+
+## Int
+
+```kotlin
+include(static:std:array)
+```
+
+- `pow(power: Int): Int`
+- `root(number: Int): Int`
+- `mag(number: Int): Int` returns a positive integer
+
+## List
+
+Unlike other classes, List is an `Object` type extension that needs to be instantiated.
+
+```swift
+include(std:list)
+
+let names = new list(10)        ; creates a list of initial size 10
+names.add("Hack")
+names.add("Club!")
+
+println(names)
+; [Hack, Club!]
+```
+
+- `add(element: Any)`
+- `addAt(at: Int)`
+- `get(at: Int): Any`
+- `set(element: Any, at: Int)`
+- `indexOf(element: Any): Int`
+- `contains(element: Any): Bool`
+- `remove(at: Int): Any` removes and returns the element removed
+- `removeElement(element: Any)` removes the specific element from the list
+- `clear()` clears all the elements present
+- `array(): Array`
+- `arrayOfRange(from: Int, end: Int): Array`
+- `string(): String` returns a string representation of elements present
+
+## Math
+
+```swift
+include(static:std:math)
+
+println(math.max(5, 8))
+; 8
+```
+
+- `min(a: Int, b: Int): Int`
+- `max(a: Int, b: Int): Int`
+- `abs(a: Int): Int`
+- `avg(nums: Array<Int>): Int` returns average of the given int array
+
+## Type
+
+```swift
+include(static:std:etype)
+
+println(typeOf("hello").isStdLib())
+; true
+```

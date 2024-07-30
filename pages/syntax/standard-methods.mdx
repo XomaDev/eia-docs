@@ -1,0 +1,35 @@
+# Standard methods
+
+A bunch of useful standard methods!
+
+- `print(args...)` and `println(args...)` writes to standard output
+- `len()` returns length of a measurable element (String, Array or Unit)
+- `sleep(millis: Int)`
+- `rand(from: Int, to: Int): Int`
+- `int(Char or String or Float)` converts into an int type
+- `exit(exitCode: Int)`
+- `float(Int or Char or String): Float`
+- `bool(String): Bool`
+- `time(): Int` time (in millis) since program started
+- `read(): String` and `readln(): String` reads from standard input
+- `format(String, Format Args...): String` formats a string with values provided, equal to `String.format()` of Java
+- `typeOf(Any Element): Type` returns type signature of an element
+- `copy(Any Element): Any` duplicates the element (primitives only!)
+- `memclear()` experimental method to clear all the memory space
+
+## Useful snippets
+
+Formating a string with args
+
+```swift copy
+let name = "Melon"
+println( format("Hello %s!", name) )
+; prints "Hello Melon!"
+```
+
+`format()` method is the exact same as `String.format()`! That's what's called under the hood.
+
+```kotlin copy
+println(typeOf("Melon") == type::String)              ; true
+println(typeOf(arrayOf(5, 2)) == type::Array<Int>)    ; true
+```
