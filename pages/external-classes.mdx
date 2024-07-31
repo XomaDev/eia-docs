@@ -1,2 +1,119 @@
 # Classes in Eia
 
+Eia supports adding external class and lets you access its public functions and variables.
+You may import an external class as a static or an instantiated object.
+
+## Defining Classes
+
+So how do you define a class?\
+It's really simple, just add `visible` modifier to global variables and functions to make it visible to other classes.
+
+```go filename="Meow.eia" copy
+visible fn sayMeow() {
+  println("Meow!")
+}
+```
+
+By default, all the variables and functions are marked `private`.
+
+### Constructors
+
+In Eia, you may add an object constructor by defining a `visible` `init` with desired arguments.
+You may define multiple of `init` functions with varying number of arguments.
+
+> init() function is not required if you are accessing a class statically
+
+```swift filename="Person.eia" copy
+; Global visible variables that stores a person^s name and their age
+; Variables initially nil (null)
+
+visible var person: String = nil
+visible var age: Int = nil
+
+visible fn init(name: String) {
+  person = name
+  age = 20  ; default age
+}
+
+visible fn init(name: String, _age: Int) {
+  person = name
+  age = _age
+}
+
+visible fn printUser() {
+  println(format("Person named %s of age %d", person, age))
+}
+```
+
+## Including an external class
+
+You can include an external class using `include` keyword.
+E.g., including `Person`.eia which lies in the same directory (`simulation`).
+
+```swift filename="Main.eia" copy
+include(
+  "simulation/Person"
+   ...
+)
+```
+
+### If a path
+
+1. Starts with `/`, Eia assumes it's a full path.
+2. Doesn't start with `/`, it appends user directory at the beginning.
+3. Starts with prefix `stdlib`, it is replaced by path of standard library directory.
+
+## Creating objects
+
+`new` keyword is used to create an instance of a class:
+
+```swift filename="Main.eia" copy
+; Create an instance of Person using either init(name: String)
+; or init(name: String, age: Int)
+
+let person = new Person("Melon", 16)
+person.printUser()
+println(person.age)
+```
+
+It prints the following:
+
+```
+Person named Melon of age 16
+16
+```
+
+## Static usage of a class
+
+Consider this file:
+
+```kotlin filename="Cat.eia" copy
+include(static:std:string)
+
+var lastNTimes = 0
+
+visible fn sayMeow(nTimes: Int) {
+  nTimes += lastNTimes
+  println("Meow ".repeat(nTimes))
+}
+```
+
+Now, to use this file statically, we'll import it:
+
+```kotlin filename="Main.eia" copy
+include(static:"simulation/Cat.eia")
+```
+
+then we use it:
+
+```kotlin filename="Main.eia" copy
+println(sayMeow(2))
+println(sayMeow(3))
+```
+
+this outputs the following:
+
+```
+Meow Meow
+Meow Meow Meow Meow Meow
+```
