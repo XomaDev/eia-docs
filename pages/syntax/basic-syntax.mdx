@@ -61,6 +61,22 @@ count += 2
 
 > Eia has an automated type resolution system, you don't need to explicitly specify data types, it is auto-detected.
 
+### Variable Modifiers
+
+You can use modifiers `visible` or `private` to expose variable to outer classes or to keep them private.\
+Local scope variables are always private, since external classes only have access to scope 0 of the current class.
+
+```kotlin
+; variable is accessable to other classes
+visible let name = "Meow"
+
+; default or private variables
+let age = 16
+; or
+private let age = 16
+(they both are the same)
+```
+
 ## Primitive types
 
 Primitive classes in Eia are `Bool`, `Int`, `Char`, `Float`, generic `Num`, `String`, `Array`/`Array<N>`,

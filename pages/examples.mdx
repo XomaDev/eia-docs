@@ -1,4 +1,5 @@
-Some fascinating stuff written in Eia. 💪
+Some fascinating/cool stuff. 💪
+(The best are ordered first)
 
 To try out all the examples yourself, just clone the repository:
 
@@ -43,3 +44,41 @@ java -jar Eia64.jar examples/mathsolver.eia
 ![MathInterpreter](../public/images/mathinterpreter.png)
 
 Note that the math interpreter doesn't utilize `Float` type, so doing floating point division or multiplication will round of the result.
+
+### Fib function
+
+```bash
+java -jar Eia64.jar examples/superfib.eia
+```
+
+[View the source file.](https://github.com/XomaDev/Eia64/blob/main/examples/superfib.eia)\
+It is a good way to benchmark things. 👀
+
+```kotlin copy
+private fn fib(n: Int): Int =
+    if (n < 2) n
+    else fib(n - 1) + fib(n - 2)
+
+fn main() {
+  let startTime = time()
+
+  println(
+      "Result: " + fib(30),
+      format(" took %d ms", time() - startTime)
+  )
+}
+```
+
+```
+Result: 832040 took 442 ms
+Took 482787497 ns
+```
+
+Cold start takes around ~488 millis to compute the `fib()` function on my PC.
+
+### Rock Paper Scissor
+
+[View source code.](https://github.com/XomaDev/Eia64/blob/main/examples/rockpaperscissor.eia)\
+A simple Rock-Paper-Scissor game that you play with robot until one wins.
+
+![RockPaperScissor](../public/images/rockpaperscissor.png)
