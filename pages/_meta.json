@@ -2,6 +2,7 @@
   "index": "Introduction",
   "syntax": "Syntax",
   "standard-lib": "Standard library",
+  "examples": "Examples using Eia",
   "about": {
     "title": "About",
     "type": "page"
