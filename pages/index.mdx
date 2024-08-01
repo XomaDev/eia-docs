@@ -1,23 +1,40 @@
 # Project Eia
  
-Ever since I was 12–13, I've loved interpreters!
+Ever since I was 12–13, I've loved interpreters! (ATM I'm 16 y/o)\
 One of my friends recommended the book [Crafting Interpreters](https://craftinginterpreters.com/)
 by Robert Nystrom which taught me basic foundational ideas and mechanics of an interpreter.
 Even before I discovered this book,
-I had spent a lot of days creating interpreters (which where not so good, but fun!)
+I had spent a lot of days creating interpreters (which were not so good, but fun to make!)
 
 ## How does Eia work
 
 ![HowEiaWorks](../public/images/HowEiaWorks.png)
 
 Eia is written in Kotlin, a JVM Language.
-Kotlin compiles down into Bytecode that is later executed by the Java Virtual
-Machine (JVM).\
-JVM is written in C++.
-So when you write code in Eia, there are three layers of abstraction the code has to go through to get executed.
+Kotlin compiles down into platform independent Bytecode that is later executed by the Java Virtual
+Machine (JVM).
+JVM is implemented in C++.
+
+So when you write code in Eia, there are <b><i>three layers</i></b> of abstraction the code has to go through to get executed.\
+This makes execution really slowww...\
+A `fib(n)` function which takes couple hundred millis to execute on Eia, takes a
+split second on Java, and not even few millis on C++.
+
+This gives any form of compiled language an edge over purely interpreted ones like this one.
+
+> Fun fact: Python isn't a purely interpreted nor a compiled language. It's a mix where code is turned into Bytecode by
+the parsed syntax trees that is later executed by the Python Virtual Machine (PVM)
+
+## Source of enthusiasm
+
+This is not my first attempt towards making a language.
+I've done many in the past.
+So initially, I was skeptical towards working on the project, thought couldn't make it much better after all those efforts.
+But honestly, I've learnt a lot in the process that was unimaginable just a couple of months ago.
 
 Originally part of <b>`lang-jam`</b> hosted by HackClub!
-Also part of Arcade <b>\<3</b>, that gave me an immense boost of
+Also part of my Arcade <b>\<3</b>, that gave me an immense boost of
 productivity and long dedication required.
+
 
 This website aims to document all the features and working of Eia64!
