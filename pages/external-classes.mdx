@@ -117,3 +117,26 @@ this outputs the following:
 Meow Meow
 Meow Meow Meow Meow Meow
 ```
+
+## Tips
+
+In Eia you can implement a `string()` function to return a custom text:
+
+```swift
+visible fn string(): String {
+  return "Person(name=" + person + ", age=" + age + ")"
+}
+```
+
+now when you do:
+
+```swift
+let person = new Person("Melon", 16)
+println(person)
+```
+
+you would see:
+
+```
+Person(name=Melon, age=16)
+```
