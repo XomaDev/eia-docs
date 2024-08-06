@@ -24,15 +24,15 @@ You may define multiple of `init` functions with varying number of arguments.
 > init() function is not required if you are accessing a class statically
 
 ```swift filename="Person.eia" copy
-; Global visible variables that stores a person^s name and their age
-; Variables initially nil (null)
+// Global visible variables that stores a person^s name and their age
+// Variables initially nil (null)
 
 visible var person: String = nil
 visible var age: Int = nil
 
 visible fn init(name: String) {
   person = name
-  age = 20  ; default age
+  age = 20  // default age
 }
 
 visible fn init(name: String, _age: Int) {
@@ -68,8 +68,8 @@ include(
 `new` keyword is used to create an instance of a class:
 
 ```swift filename="Main.eia" copy
-; Create an instance of Person using either init(name: String)
-; or init(name: String, age: Int)
+// Create an instance of Person using either init(name: String)
+// or init(name: String, age: Int)
 
 let person = new Person("Melon", 16)
 person.printUser()

@@ -2,7 +2,7 @@
 
 Collection of basic code snippets to get a quick start!
 
-> Note: a semicolon `;` is used to add comments
+> Note: '//' is used for comments
 
 ## Program entry point
 
@@ -29,13 +29,13 @@ println("Thank you", " Hackclub!")
 Similarly, `readln` function reads an entire line from the standard input.
 
 ```swift copy
-; Requests the user to enter a name
+// Requests the user to enter a name
 println("Enter a name: ")
 
-; Reads and stores the name
+// Reads and stores the name
 let name = readln()
 
-; Hello $name
+// Hello $name
 println("Hello ", name)
 ```
 
@@ -48,15 +48,25 @@ To create a mutable variable with re-assignable property, use the `var` keyword.
 
 ```js copy
 let name = "Hackclub!"
-; 'name' is a constant that can only be accessed!
+// 'name' is a constant that can only be accessed!
 ```
 
 ```swift copy
-; Creates a variable 'count' with initial value of 7
+// Creates a variable 'count' with initial value of 7
 var count = 7
-; Increment the count by 2
+// Increment the count by 2
 count += 2
 ; 9
+```
+
+Eia supports declaring many variables in a single statement:
+
+```
+// declaring two variables of ints
+let a = 1, b = 2
+
+// declaring two different typed variables
+let c: Int = 2, d: String = "meow"
 ```
 
 > Eia has an automated type resolution system, you don't need to explicitly specify data types, it is auto-detected.
@@ -67,12 +77,12 @@ You can use modifiers `visible` or `private` to expose variable to outer classes
 Local scope variables are always private, since external classes only have access to scope 0 of the current class.
 
 ```kotlin
-; variable is accessable to other classes
+// variable is accessable to other classes
 visible let name = "Meow"
 
-; default or private variables
+// default or private variables
 let age = 16
-; or
+// or
 private let age = 16
 (they both are the same)
 ```
@@ -85,17 +95,17 @@ An example of few:
 
 ```swift copy
 println(
-  "Meow World",   ; a string
-  'H',            ; a character
-  true,           ; boolean type
-  123,            ; an integer
-  2.8,            ; a float
-  nil,            ; null type
+  "Meow World",   // a string
+  'H',            // a character
+  true,           // boolean type
+  123,            // an integer
+  2.8,            // a float
+  nil,            // null type
 
-  { println("Meow") }            ; a Unit, anonymous lambda that can be invoked using `<unit>(args..)`
-  arrayOf("meow", "world"),      ; implicit array declaration (type is auto resolved)
-  arrayOf<Any>(2, "hello"),      ; an array containing mixed data types
-  makeArray<Int>(5, 8)           ; create an array of integer of size 5 with default value 8
+  { println("Meow") }            // a Unit, anonymous lambda that can be invoked using `<unit>(args..)`
+  arrayOf("meow", "world"),      // implicit array declaration (type is auto resolved)
+  arrayOf<Any>(2, "hello"),      // an array containing mixed data types
+  makeArray<Int>(5, 8)           // create an array of integer of size 5 with default value 8
 )
 ```
 
@@ -151,8 +161,8 @@ let max = if (a > b) {
 }
 
 println(max)
-; Choose b
-; 20
+// Choose b
+// 20
 ```
 
 If you're using if as an expression, for example,
@@ -171,7 +181,7 @@ or the classical way:
 
 ```swift copy
 let places = arrayOf("India", "Japan", "Germany")
-for (var i = 0, i < len(places), i++) {
+for (var i = 0; i < len(places); i++) {
   println(places[i])
 }
 ```
@@ -189,7 +199,7 @@ until (index < len(places)) {
 
 ### Special loop
 
-It's one of the special feature offered by Eia!
+It's one of the special features offered by Eia!
 
 Iterating backwards from 5 to 1:
 
@@ -213,21 +223,21 @@ Like Kotlin, the `is` checks if an expression belongs to a certain type.
 
 ```swift copy
 let a = "Meow!"
-println(a is String)            ; true
-println("Meow" + 8 is Int)      ; false
-println(arrayOf("Hack", "Club!") is Array<String>)      ; true
+println(a is String)            // true
+println("Meow" + 8 is Int)      // false
+println(arrayOf("Hack", "Club!") is Array<String>)      // true
 ```
 
 To cast values, for example from `Any` to `Int` or generic `Array` to `Array<Int>` we use the cast operator `::` followed
 by a type:
 
 ```swift copy
-; casting from Any to String
+// casting from Any to String
 let name: Any = "Meow"
 let reName: String = name::String
 
-; casting from generic Array to Array<Int>
-let gArray = arrayOf(7::Any, 8::Any)        ; gArray has signature Array<Any>
-let eArray = gArray::Array<Int>             ; eArray has signature Array<Int>
+// casting from generic Array to Array<Int>
+let gArray = arrayOf(7::Any, 8::Any)        // gArray has signature Array<Any>
+let eArray = gArray::Array<Int>             // eArray has signature Array<Int>
 ```
 

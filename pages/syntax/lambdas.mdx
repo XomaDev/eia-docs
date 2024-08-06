@@ -4,7 +4,7 @@ Called as Units (type signature `Unit`), they are anonymous functions that can b
 passed to a function and can be called with args.
 
 ```swift copt
-; an anoymous lambda stored in a variable that can be called on demand!
+// an anoymous lambda stored in a variable that can be called on demand!
 let double(x: Int) = x * 2
 
 println(double(5))  ; 10
@@ -16,9 +16,9 @@ An example demonstrating a real world scenario:
 fn pow(n: Int, power: Int, callback: Unit) {
   n = copy(n) - 1   ; copy to not change original value
 
-  for (var i = 0, i < n, i++) {
+  for (var i = 0; i < n; i++) {
     var powed = copy(i)
-    for (var j = 1, j < power, j++) {
+    for (var j = 1; j < power; j++) {
       powed *= i
     }
     callback(i, powed)
