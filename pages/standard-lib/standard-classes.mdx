@@ -11,7 +11,7 @@ Now you can perform standard operations on a string:
 
 ```swift copy
 println(" Melon ".trim())
-; "Melon"
+// "Melon"
 ```
 
 ## String
@@ -75,12 +75,12 @@ Unlike other classes, List is an `Object` type extension that needs to be instan
 ```swift
 include(std:list)
 
-let names = new list(10)        ; creates a list of initial size 10
+let names = new list(10)        // creates a list of initial size 10
 names.add("Hack")
 names.add("Club!")
 
 println(names)
-; [Hack, Club!]
+// [Hack, Club!]
 ```
 
 - `add(element: Any)`
@@ -102,7 +102,7 @@ println(names)
 include(static:std:math)
 
 println(math.max(5, 8))
-; 8
+// 8
 ```
 
 - `min(a: Int, b: Int): Int`
@@ -116,5 +116,5 @@ println(math.max(5, 8))
 include(static:std:etype)
 
 println(typeOf("hello").isStdLib())
-; true
+// true
 ```
